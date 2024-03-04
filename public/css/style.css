@@ -1,0 +1,118 @@
+:root {
+    --title-normal: 2rem;
+    --title-s: 1rem;
+    --subtitle-normal: 1rem;
+    --subtitle-s: .7rem;
+    --font-s: .9rem;
+}
+
+header .sticky-top {
+    position: sticky;
+}
+
+header .nav-item {
+    padding: 5px;
+}
+
+header .nav-item .nav-link {
+    font-size: .9rem;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #fff4f4;
+}
+
+.hero .mouse {
+    position: relative;
+    width: 30px;
+    height: 45px;
+    border: 1px solid #1d1d1d;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.mouse .mouse-wheel {
+    position: absolute;
+    width: 5px;
+    height: 10px;
+    background-color: #1d1d1d;
+    border-radius: 50%;
+    top: 10%;
+    left: 40%;
+}
+
+@media screen and (max-width:576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width:360px) {
+    .hero h1 {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: var(--font-s);
+    }
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    padding-top: 2rem;
+}
+
+.blog div[class*='col'] {
+    display: flex;
+    justify-content: center;
+}
+
+.blog .card {
+    margin-bottom: 2rem;
+    max-width: 22rem;
+}
+
+.blog .card img {
+    border-radius: 5px;
+}
+
+.blog .card .card-text {
+    font-size: var(--font-s);
+}
+
+.blog .card a {
+    display: inline-block;
+    font-size: var(--font-s);
+    margin-bottom: 1rem;
+}
+
+.blog .card .img-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.blog img {
+    transition: all 0.5s ease-in-out;
+}
+
+.blog .card .img-container:hover img {
+    transform: scale(1.2);
+}
+
+@media screen and (max-width:360px) {
+    .blog .card .card-title {
+        font-size: 1.1rem;
+    }
+}
+
+footer .container-fluid {
+    background-color: rgba(0, 0, 0, .9);
+}
+
+footer p {
+    color: #ececec;
+}
