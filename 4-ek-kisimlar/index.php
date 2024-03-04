@@ -24,19 +24,63 @@ LEFT JOIN urun_giren_stok as giren_stok ON giren_stok.urun_id = urunler.id
 LEFT JOIN urun_cikan_stok as cikan_stok ON cikan_stok.urun_id = urunler.id");
 $sql->execute();
 $products = $sql->fetchAll(PDO::FETCH_ASSOC);
-if ($products) {
-    foreach ($products as $product) {
-        echo "<pre>";
-        echo $product['id'] . "<br>";
-        echo $product['grup_adi'] . "<br>";
-        echo $product['urun_adi'] . "<br>";
-        echo $product['urun_birimi'] . "<br>";
-        echo $product['urun_giren_stok'] - $product['urun_cikan_stok'];
-        echo "</pre>";
-    }
-}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>Grup adı</td>
+                <td>Ürün adı</td>
+                <td>Birim</td>
+                <td>Guncel stok</td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($products as $product) : ?>
+                <tr>
+                    <td><?= $product['id'] ?></td>
+                    <td><?= $product['grup_adi'] ?></td>
+                    <td><?= $product['urun_adi'] ?></td>
+                    <td><?= $product['urun_birimi'] ?></td>
+                    <td><?= $product['urun_giren_stok'] - $product['urun_cikan_stok'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</body>
+
+</html>
 
 //3.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <input type="text" name="kullanici_adi" id="kullanici_adi">
+        <input type="password" name="sifre" id="sifre">
+        <input type="submit" name="submit" value="Giriş Yap">
+    </form>
+</body>
+
+</html>
+<?php
 session_start();
 function post($data)
 {
@@ -77,51 +121,32 @@ if (isset($_POST['submit'])) {
 }
 
 //4.
+echo "<br>";
 $array1 = ['cicek' => 'nergis', 'hayvan' => 'lemur', 'renk' => 'kırmızı'];
 $array2 = ['elma', 'armut', 'portakal'];
 $array1['sehir'] = 'Ankara';
-$array2 = ['Ankara'];
+array_push($array2, 'Ankara');
 print_r($array1);
 print_r($array2);
 
 //5.
+//kodlar app.js dosyasında...
 echo "<br>";
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../public/css/bootstrap.min.css">
     <title>Document</title>
 </head>
-
 <body>
     <form action="" method="post">
-        <input type="hidden" name="user-id" class="user-id" value="1">
-        <button type="button" class="btn btn-primary active"> Kullanıcı Durumunu Devre Dışı Bırak</button>
+        <input type="hidden" name="user-id" class="user-id" value="3">
+        <button type="button" class="btn btn-primary passive" value="p"> Kullanıcı Durumunu Devre Dışı Bırak</button>
     </form>
-    <script>
-        let button = document.querySelector(".btn");
-        button.addEventListener('click', Request);
-
-        function changeStatus() {
-            button.classList.remove('active');
-            button.classList.add('passive');
-            if (button.classList.contains('passive')) {
-                Request(e);
-            }
-        }
-
-        function Request(e) {
-            e.preventDefault();
-            let url = 'http://localhost/jr-full-stack/ek-kisimlar/ajax.php';
-            let userId = document.querySelector('user-id');
-            var formData = new FormData();
-            formData.append('id', userId);
-
-        }
-    </script>
-    <script src="../public/js/jquery-3.6.0.min.js"></script>
-    <script src="../public/js/bootstrap.min.js"></script>
+    <script src="../public/js/app.js"></script>
 </body>
 <!DOCTYPE html>
 

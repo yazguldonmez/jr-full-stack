@@ -52,6 +52,7 @@ $Database = new Database();
 //3.
 
 //4
+session_destroy();
 
 //5.
 $text = 'apple';

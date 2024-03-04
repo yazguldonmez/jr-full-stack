@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 04 Mar 2024, 13:30:34
+-- Üretim Zamanı: 04 Mar 2024, 23:50:45
 -- Sunucu sürümü: 10.4.27-MariaDB
 -- PHP Sürümü: 8.2.0
 
@@ -59,18 +59,19 @@ CREATE TABLE `kullanicilar` (
   `soyad` varchar(50) NOT NULL,
   `kullanici_adi` varchar(50) NOT NULL,
   `sifre` varchar(50) NOT NULL,
-  `e_mail` varchar(50) NOT NULL
+  `e_mail` varchar(50) NOT NULL,
+  `durum` enum('a','p') DEFAULT 'a'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `kullanicilar`
 --
 
-INSERT INTO `kullanicilar` (`id`, `ad`, `soyad`, `kullanici_adi`, `sifre`, `e_mail`) VALUES
-(1, 'Yazgül', 'Dönmez', 'yazgul', '123456', 'yazgul@hotmail.com'),
-(2, 'Fatma', 'Sever', 'fatma99', '78900987', 'sever@hotmail.com'),
-(3, 'Büşra', 'Akıncı', 'bus', 'busra1410', 'busra_akinci97@hotmail.com'),
-(4, 'Meryem', 'Dönmez', 'meri', 'meri111', 'meryem.donmez@gmail.com');
+INSERT INTO `kullanicilar` (`id`, `ad`, `soyad`, `kullanici_adi`, `sifre`, `e_mail`, `durum`) VALUES
+(1, 'Yazgül', 'Dönmez', 'yazgul', '123456', 'yazgul@hotmail.com', 'p'),
+(2, 'Fatma', 'Sever', 'fatma99', '78900987', 'sever@hotmail.com', 'a'),
+(3, 'Büşra', 'Akıncı', 'bus', 'busra1410', 'busra_akinci97@hotmail.com', 'p'),
+(4, 'Meryem', 'Dönmez', 'meri', 'meri111', 'meryem.donmez@gmail.com', 'a');
 
 -- --------------------------------------------------------
 
